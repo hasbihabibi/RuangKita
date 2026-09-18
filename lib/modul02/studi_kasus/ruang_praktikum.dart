@@ -22,11 +22,44 @@ class _RuangPraktikumState extends State<RuangPraktikum> {
         ),
       ),
       //ListView tampilan 1 Kolom
-      body: ListView.separated(
-        padding: const EdgeInsets.all(16),
-        itemCount: _sessions.length,
-        separatorBuilder: (context, index) => const SizedBox(height: 16),
-        itemBuilder: (context, index) => _buildCard(_sessions[index]),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth < 600) {
+            //1 Kolom
+            return ListView.separated(
+              padding: const EdgeInsets.all(16),
+              itemCount: _sessions.length,
+              separatorBuilder: (context, index) => const SizedBox(height: 16),
+              itemBuilder: (context, index) => _buildCard(_sessions[index]),
+            );
+          } else if (constraints.maxWidth < 840) {
+            //2 Kolom
+            return GridView.builder(
+              padding: const EdgeInsets.all(16),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                childAspectRatio: 2.5,
+              ),
+              itemCount: _sessions.length,
+              itemBuilder: (context, index) => _buildCard(_sessions[index]),
+            );
+          } else {
+            //3 Kolom
+            return GridView.builder(
+              padding: const EdgeInsets.all(16),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                childAspectRatio: 1.8,
+              ),
+              itemCount: _sessions.length,
+              itemBuilder: (context, index) => _buildCard(_sessions[index]),
+            );
+          }
+        },
       ),
     );
   }
