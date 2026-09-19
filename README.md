@@ -23,10 +23,9 @@ Widget `Expanded` sangat penting karena ia memaksa *child widget* di dalamnya un
 Alur kerjanya dimulai ketika pengguna mengetuk (tap) salah satu `ChoiceChip`. Fungsi `onSelected` akan terpanggil dan mengeksekusi `setState()`. Di dalam `setState()`, variabel `_selectedStatus` diperbarui dengan nilai kategori baru (misal: "Berlangsung"). Pemanggilan `setState()` ini memberi sinyal ke *framework* Flutter untuk merombak/me-render ulang (*rebuild*) UI melalui fungsi `build()`. Saat proses *rebuild*, fungsi getter `_filteredSessions` akan menghasilkan daftar ruangan baru yang sudah disaring sesuai status tersebut, lalu `ListView/GridView` merender ulang daftar kartu baru tersebut ke layar seketika.
 
 ## Lampiran
-* **Screenshot:** 
-*Tampilan Mobile:*![Tampilan Mobile](screenshots/01_mobile_light.png) 
-*Tampilan Tablet:*![Tampilan Tablet](screenshots/02_tablet.png) 
-*Tampilan Expanded:*![Tampilan Expanded](screenshots/03_expanded.png) 
-*Tampilan Dark Mode:*![Tampilan Dark Mode](screenshots/04_dark_mode.png)
+* **Tampilan Mobile:**![Tampilan Mobile](screenshots/01_mobile_light.png) 
+* **Tampilan Tablet:**![Tampilan Tablet](screenshots/02_tablet.png) 
+* **Tampilan Expanded:**![Tampilan Expanded](screenshots/03_expanded.png) 
+* **Tampilan Dark Mode:**![Tampilan Dark Mode](screenshots/04_dark_mode.png)
 * **Bukti Widget Tree:** ![Widget Tree](evidence/widget_tree.png)
 * **Tautan Commit Final:** https://github.com/hasbihabibi/RuangKita.git

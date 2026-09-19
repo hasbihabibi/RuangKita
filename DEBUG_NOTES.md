@@ -21,5 +21,5 @@ Penyelesaian dilakukan dengan dua penyesuaian untuk mengatur ukuran ruang dan te
 Kedua hal ini menjamin tinggi *Column* tetap stabil dan tidak melampaui ukuran kontainer *Card*.
 
 **Bukti Penyesuaian:**
-* ![Sebelum:](screenshots/image_0b0ca0.png)
-* [Sesudah:](screenshots/02_tablet.png)
+* **Sebelum:**![Sebelum:](screenshots/image_0b0ca0.png)
+* **Sesudah:**![Sesudah:](screenshots/02_tablet.png)
