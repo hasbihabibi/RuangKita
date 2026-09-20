@@ -6,8 +6,20 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool _isDarkMode = false;
+  void _toggleTheme() {
+    setState(() {
+      _isDarkMode = !_isDarkMode;
+    });
+  }
 
   // This widget is the root of your application.
   @override
@@ -18,7 +30,7 @@ class MyApp extends StatelessWidget {
 
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: .fromSeed(
+        colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.indigo,
           brightness: Brightness.light,
         ),
@@ -32,8 +44,11 @@ class MyApp extends StatelessWidget {
         ),
       ),
 
-      themeMode: ThemeMode.system,
-      home: const RuangPraktikum(),
+      themeMode: _isDarkMode ? ThemeMode.dark : ThemeMode.light,
+      home: RuangPraktikum(
+        isDarkMode: _isDarkMode,
+        onToggleTheme: _toggleTheme,
+      ),
     );
   }
 }

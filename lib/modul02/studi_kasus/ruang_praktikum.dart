@@ -3,7 +3,14 @@ import 'package:flutter/material.dart';
 import '../../models/room_session.dart';
 
 class RuangPraktikum extends StatefulWidget {
-  const RuangPraktikum({super.key});
+  final bool isDarkMode;
+  final VoidCallback onToggleTheme;
+
+  const RuangPraktikum({
+    super.key,
+    required this.isDarkMode,
+    required this.onToggleTheme,
+  });
 
   @override
   State<RuangPraktikum> createState() => _RuangPraktikumState();
@@ -40,6 +47,14 @@ class _RuangPraktikumState extends State<RuangPraktikum> {
           'Dashboard Studio RuangKita (M02-2135)',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
+
+        actions: [
+          IconButton(
+            onPressed: widget.onToggleTheme,
+            icon: Icon(widget.isDarkMode ? Icons.light_mode : Icons.dark_mode),
+          ),
+          const SizedBox(width: 8),
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
